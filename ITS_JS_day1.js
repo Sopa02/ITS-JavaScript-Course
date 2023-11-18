@@ -225,6 +225,8 @@ console.log(buysLunch + " is going to buy lunch today!");
 
 // Array access using loops
 let numbers = [1, 2, 3, 4, 5];
+
+
 for(let i = 0; i < numbers.length; i++){
     console.log(numbers[i]);
 }
@@ -270,3 +272,107 @@ function arrayTask(){
 arrayTask();
 // Ha of helyett in-t használok, akkor az elemek indexét kapom meg,
 // nem az elemeket magukat. Azaz itt 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+
+// GENERATED WITH GITHUB COPILOT ------------------------------
+// array methods: push, pop, shift, unshift, splice, slice, indexOf, includes, concat, join, reverse, sort, filter, map, reduce
+
+// push -> add element to the end of the array 
+    // magyarul: hozzáad egy elemet a tömb végéhez
+// pop -> remove element from the end of the array 
+    // magyarul: eltávolít egy elemet a tömb végéről
+// shift -> remove element from the beginning of the array 
+    // magyarul: eltávolít egy elemet a tömb elejéről
+// unshift -> add element to the beginning of the array 
+    // magyarul: hozzáad egy elemet a tömb elejéhez
+// splice -> add or remove elements from the array 
+    // magyarul: hozzáad vagy eltávolít elemeket a tömbhöz
+// slice -> copy part of the array 
+    // magyarul: lemásol egy tömb részt
+// indexOf -> find the index of an element 
+    // magyarul: megkeresi egy elem indexét
+// includes -> check if an element is in the array 
+    // magyarul: megvizsgálja, hogy egy elem benne van-e a tömbben
+// concat -> merge two or more arrays 
+    // magyarul: összefűz két vagy több tömböt
+// join -> create a string from an array 
+    // magyarul: stringet készít egy tömbből
+// reverse -> reverse the order of the elements in the array 
+    // magyarul: megfordítja a tömb elemeinek sorrendjét
+// sort -> sort the elements in the array 
+    // magyarul: rendezni a tömb elemeit
+// filter -> create a new array with elements that pass the test 
+    // magyarul: új tömböt hoz létre azokkal az elemekkel, amelyek átmennek a teszten
+// map -> create a new array by performing a function on each element 
+    // magyarul: új tömböt hoz létre a függvény végrehajtásával minden elemen
+// reduce -> reduce the array to a single value 
+    // magyarul: csökkenti a tömböt egyetlen értékre
+// GENERATED WITH GITHUB COPILOT ------------------------------
+
+// push example
+let fruits = ["apple", "banana", "orange"];
+fruits.push("pear");
+console.log(fruits);
+// ["apple", "banana", "orange", "pear"]
+
+// pop example
+fruits = ["apple", "banana", "orange"];
+fruits.pop();
+console.log(fruits);
+// ["apple", "banana"]
+
+// shift example
+fruits = ["apple", "banana", "orange"];
+fruits.shift();
+console.log(fruits);
+// ["banana", "orange"]
+
+// unshift example
+fruits = ["apple", "banana", "orange"];
+fruits.unshift("pear");
+console.log(fruits);
+// ["pear", "apple", "banana", "orange"]
+
+// splice example
+fruits = ["apple", "banana", "orange"];
+fruits.splice(1, 1, "pear");
+console.log(fruits);
+// ["apple", "pear", "orange"]
+
+// splice remove example
+fruits = ["apple", "banana", "orange"];
+fruits.splice(1, 1);
+console.log(fruits);
+// ["apple", "orange"]
+
+// slice example
+fruits = ["apple", "banana", "orange"];
+let sliced = fruits.slice(1, 2);
+console.log(sliced);
+// ["banana"]
+
+// etc...
+
+
+
+let input = prompt("Enter a values sperated by commas:");
+let array = input.split(",");
+document.write("<p>The array: [ " + array + " ]</p>");
+document.write("<p>The array length: " + array.length + "</p>");
+// Sum, average, max, min
+let sum = 0;
+let max = Math.max(...array);
+let min = Math.min(...array);
+for(let element of array){
+    element = Number(element);
+    sum += element;
+}
+let average = sum / array.length;
+document.write("<p>The sum: " + sum + "</p>");
+document.write("<p>The average: " + average + "</p>");
+document.write("<p>The max: " + max + "</p>");
+document.write("<p>The min: " + min + "</p>");
+let reversed = array.reverse();
+document.write("<p>The array reversed: [ " + reversed + " ]</p>");
+
+
+// End of day 1.
