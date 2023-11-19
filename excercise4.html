@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="heading1">This is a h1 element</h1>
+    <div>
+            <h3>Text align buttons</h3>
+        <ul>
+            <li><button id="left">Left</button></li>
+            <li><button id="center">Center</button></li>
+            <li><button id="right">Right</button></li>
+        </ul>
+    </div>
+    
+
+    <div>
+        <h3>Font size buttons</h3>
+        <ul>
+            <li><button id="smaller">Smaller</button></li>
+            <li><button id="bigger">Bigger</button></li>
+        </ul>
+    </div>
+
+    <div>
+        <h3>Font family buttons</h3>
+        <ul>
+            <li><button id="arial">Arial</button></li>
+            <li><button id="times">Times New Roman</button></li>
+            <li><button id="courier">Courier New</button></li>
+        </ul>
+    </div>
+    <div>
+        <h3>Change divs background color</h3>
+        <ul>
+            <li>
+                <button id="color">Change Color</button>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <h3>Add text shadow</h3>
+        <ul>
+            <li>
+                <button id="addShadow">Add shadow</button>
+                <button id="removeShadow">Remove shadow</button>
+            </li>
+        </ul>
+    </div>
+    <div>
+        <h3>Random border</h3>
+        <li>
+            <button id="randomBorder">Random border</button>
+        </li>
+    </div>
+</body>
+<script>
+    const heading1 = document.getElementById("heading1");
+    const left = document.getElementById("left");
+    const center = document.getElementById("center");
+    const right = document.getElementById("right");
+    const smaller = document.getElementById("smaller");
+    const bigger = document.getElementById("bigger");
+    const arial = document.getElementById("arial");
+    const times = document.getElementById("times");
+    const courier = document.getElementById("courier");
+    const colorButton = document.getElementById("color");
+    const allDivs = document.getElementsByTagName("div");
+    const addShadow = document.getElementById("addShadow");
+    const removeShadow = document.getElementById("removeShadow");
+    const randomBorder = document.getElementById("randomBorder");
+
+    // Setting the text align of the heading
+    left.addEventListener("click", function() {
+        heading1.style.textAlign = "left";
+    });
+
+    center.addEventListener("click", function() {
+        heading1.style.textAlign = "center";
+    });
+
+    right.addEventListener("click", function() {
+        heading1.style.textAlign = "right";
+    });
+
+    //  window.getComputedStyle(element).fontSize returns the font
+    // size of the element in pixels
+    // parseInt() converts the string to an integer
+    //  Then we can add or subtract 1 from it, 
+    // and set the font size, adding "px" to the end
+    smaller.addEventListener("click", function() {
+        let fontSize = parseInt(window.getComputedStyle(heading1).fontSize);
+        heading1.style.fontSize = fontSize - 1 + "px";
+    });
+
+    bigger.addEventListener("click", function() {
+        let fontSize = parseInt(window.getComputedStyle(heading1).fontSize);
+        heading1.style.fontSize = fontSize + 1 + "px";
+    });
+
+    arial.addEventListener("click", function() {
+        heading1.style.fontFamily = "Arial";
+    });
+
+    times.addEventListener("click", function() {
+        heading1.style.fontFamily = "Times New Roman";
+    });
+
+    courier.addEventListener("click", function() {
+        heading1.style.fontFamily = "Courier New";
+    });
+    
+    colorButton.addEventListener("click", function() {
+        // Math.random() returns a random number between 0 and 1
+        // Math.floor() rounds down to the nearest integer
+        // Math.floor(Math.random() * 256) returns a random number between 0 and 255
+        let r = Math.floor(Math.random() * 256);
+        let g = Math.floor(Math.random() * 256);
+        let b= Math.floor(Math.random() * 256);
+        for (let i = 0; i < allDivs.length; i++) {
+            allDivs[i].style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+        }
+        // The ` lets us use ${} to insert variables into a string
+    });
+    addShadow.addEventListener("click", function() {
+        heading1.style.textShadow = "2px 2px 2px black";
+    });
+    removeShadow.addEventListener("click", function() {
+        heading1.style.textShadow = "none";
+    });
+
+    randomBorder.addEventListener("click", function() {
+        // Random colors like before
+        const r = Math.floor(Math.random() * 256);
+        const g = Math.floor(Math.random() * 256);
+        const b = Math.floor(Math.random() * 256);
+        // Random border radius between 0 and 100
+        const x = Math.floor(Math.random() * 100);
+        const y = Math.floor(Math.random() * 100);
+        const z = Math.floor(Math.random() * 100);
+        const w = Math.floor(Math.random() * 100);
+        for (let i = 0; i < allDivs.length; i++) {
+            // Setting the color
+            allDivs[i].style.border = `5px solid rgb(${r}, ${g}, ${b})`;
+            // Setting the radius
+            allDivs[i].style.borderRadius = `${x}px ${y}px ${z}px ${w}px`;
+            // Setting the padding and margin so it doesn't look weird
+            allDivs[i].style.padding = "10px";
+            allDivs[i].style.marginTop = "10px";
+        }
+    });
+
+
+    // Get elements from docment:
+    // document.getElementById("id")                    // returns an element
+    // document.getElementsByTagName("tag")             // returns an array-like object
+    // document.getElementsByClassName("class")         // returns an array-like object
+    // document.querySelectorAll("css selector")        // returns an array-like object
+    // document.querySelector("css selector")           // returns an element
+    // document.getElementsByName("name")               // returns an array-like object
+    // document.forms["formName"]                       // returns a form
+    // document.forms[0]                                // returns a form
+    // document.forms.formName.elements["elementName"]  // returns an element
+    // document.forms.formName.elements[0]              // returns an element
+    // document.forms.formName.elements.elementName     // returns an element
+
+    // Create elements:
+    // These methods inject HTML code into the document
+    // document.write("text")                           // writes text to the document
+    // document.createElement("tag")                    // returns an element
+    // document.createTextNode("text")                  // returns a text node
+    // document.createAttribute("attribute")            // returns an attribute node
+    // document.createComment("comment")                // returns a comment node
+
+    // HTML DOM - Handling images:
+    // document.images                                  // returns an array-like object of all the images in the document
+    // document.images[0]                               // returns the first image in the document
+    // document.images.length                           // returns the number of images in the document
+    // document.images[0].src                           // returns the src attribute of the first image in the document
+
+    // Creating an image:       
+    // let img = document.createElement("img");         // create an image element
+    // img.src = "image.jpg";                           // set the src attribute
+    // document.body.appendChild(img);                  // append the image to the document body
+
+
+
+</script>
+</html>

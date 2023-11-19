@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <p>Hi</p>
+        <p>How r u</p>
+    </div>
+    <div>
+        <p>I'm fine</p>
+        <p>Thanks for asking</p>
+        <p>How are u</p>
+    </div>
+</body>
+<script>
+    // displaying the number of paragraphs in the second div
+    // getElementsByTagName returns an array-like object
+    // the second div out of all is the one with index 1
+    let div = document.getElementsByTagName("div")[1];
+    // get the 'p' elements of said div
+    let p = div.getElementsByTagName("p");
+    // This returns an HTMLCollection, which is an array-like object
+    // It has a length property, which is the number of elements in the collection
+    alert(p.length);
+</script>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="intro">
+        <p>Hi</p>
+        <p>How r u</p>
+    </div>
+    <div>
+        <p>I'm fine</p>
+        <p>Thanks for asking</p>
+        <p>How are u</p>
+    </div>
+</body>
+<script>
+    // Change the background color of the 1st div to 
+    // yellow
+    // Change the background color of the 2nd div to
+    // blue
+
+    // using getElementById and getElementsByTagName
+    // getElementById returns an object (DOM object)
+    // getElementsByTagName returns an array-like object
+    let div1 = document.getElementById("intro");
+    let div2 = document.getElementsByTagName("div")[1];
+    // DOM objects have a style property, which is an object
+    // with properties for all the CSS properties
+    div1.style.backgroundColor = "yellow";
+    div2.style.backgroundColor = "blue";
+
+    // What is DOM:
+    // Document Object Model
+    // The DOM is a tree-like structure that represents the HTML document
+    // The DOM is a programming interface for HTML and XML documents
+    // It defines the logical structure of documents and the way a document is accessed and manipulated
+    // The DOM is an object-oriented representation of the web page, 
+        // which can be modified with a scripting language such as JavaScript
+    // The DOM is platform and language independent
+    // The DOM is a W3C (World Wide Web Consortium) standard
+
+
+</script>
+</html>

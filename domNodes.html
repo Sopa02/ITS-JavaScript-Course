@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="parent"></div>
+</body>
+<script>
+    const parent = document.getElementById("parent");
+    const child = document.createElement("p");
+    child.innerHTML = "This is a paragraph, created with " +
+    "JavaScript. It is a child of the div element.";
+    parent.appendChild(child); // append the child to the parent
+
+    const button = document.createElement("button");
+    button.innerHTML = "Click me";
+    parent.appendChild(button);
+    button.addEventListener("click", function() {
+        createButtons();
+    });
+
+    let buttons = [];
+    function createButtons() {
+        const btn = document.createElement("button");
+        buttons.push(btn);
+        btn.innerHTML = `Button Number ${buttons.length}`;
+        parent.appendChild(btn);
+        btn.addEventListener("click", function() {
+            createButtons();
+        });
+    }
+
+</script>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Animation</title>
+  </head>
+  <style>
+    body {
+      text-align: center;
+    }
+    div {
+      border: 2px solid black;
+      border-radius: 4px;
+      /* This makes the boxes transition smoothly to their new position */
+      transition-duration: 500ms;
+    }
+    #bigSquare {
+      margin: 10px auto;
+      width: 500px;
+      height: 500px;
+      background-color: red;
+      position: relative;
+    }
+    #smallSquare1 {
+      width: 50px;
+      height: 50px;
+      background-color: blue;
+      position: absolute;
+    }
+    #smallSquare2 {
+      width: 50px;
+      height: 50px;
+      background-color: green;
+      position: absolute;
+    }
+  </style>
+  <body>
+    <div id="bigSquare">
+      <div id="smallSquare1"></div>
+      <div id="smallSquare2"></div>
+    </div>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+  </body>
+  <script>
+    // JavaScript Animation - DOM Animation
+
+    // setTimeout()     - executes a function, once, after waiting a specified number of milliseconds
+    // setInterval()    - same as setTimeout(), but repeats the execution of the function continuously
+    // clearInterval()  - stops the executions of the function specified in setInterval()
+    // clearTimeout()   - stops the execution of the function specified in setTimeout()
+    // Excercise:
+    /* Write a JS program to move two small squares inside one big
+    square in a random manner. User should be able to start and stop this
+    animation using button based events.*/
+
+    //A boolean variable to check if the animation is running
+    let isRunning = false;
+
+    // 1. Create a function that moves the squares
+    function moveSquares() {
+      // 1.1. Get the squares
+      let bigSquare = document.getElementById("bigSquare");
+      let smallSquare1 = document.getElementById("smallSquare1");
+      let smallSquare2 = document.getElementById("smallSquare2");
+
+      // 1.2. Get the width and height of the big square
+      // offsetWidth: returns the width of an element, including padding, border and scrollbar
+      let bigSquareWidth = bigSquare.offsetWidth;
+      let bigSquareHeight = bigSquare.offsetHeight;
+
+      // 1.3. Get the width and height of the small squares
+      let smallSquareWidth = smallSquare1.offsetWidth;
+      let smallSquareHeight = smallSquare1.offsetHeight;
+
+      // 1.4. Calculate the maximum left and top values
+      // The maximum left value is the width of the big square minus the width of the small square
+      // The maximum top value is the height of the big square minus the height of the small square
+      let maxLeft = bigSquareWidth - smallSquareWidth;
+      let maxTop = bigSquareHeight - smallSquareHeight;
+
+      // 1.5. Generate random left and top values
+      let randomLeft1 = Math.floor(Math.random() * maxLeft);
+      let randomTop1 = Math.floor(Math.random() * maxTop);
+      let randomLeft2 = Math.floor(Math.random() * maxLeft);
+      let randomTop2 = Math.floor(Math.random() * maxTop);
+
+      // 1.6. Set the left and top values of the small squares
+      // How absolute positioning works:
+      // The element is positioned relative to its first positioned (not static) ancestor element
+      // style.left: specifies the left position of a positioned element  (How many pixels from the left of the parent element)
+      // style.top: specifies the top position of a positioned element    (How many pixels from the top of the parent element)
+      smallSquare1.style.left = randomLeft1 + "px";
+      smallSquare1.style.top = randomTop1 + "px";
+      smallSquare2.style.left = randomLeft2 + "px";
+      smallSquare2.style.top = randomTop2 + "px";
+
+      // Console log for debugging
+      console.log("Left: " + randomLeft1 + " Top: " + randomTop1);
+      console.log("Left: " + randomLeft2 + " Top: " + randomTop2);
+    }
+    // 2. Create a function that starts the animation
+    let interval;
+    function startAnimation() {
+      if (isRunning) {
+        return;
+      }
+      // 2.1. Call the moveSquares() function every 1 second
+      interval = setInterval(moveSquares, 1000);
+      isRunning = true;
+    }
+    // 3. Create a function that stops the animation
+    function stopAnimation() {
+      if (!isRunning) {
+        return;
+      }
+      // 3.1. Stop the execution of the function specified in setInterval()
+      clearInterval(interval);
+      isRunning = false;
+    }
+    // 4. Create event listeners for the buttons
+    let startButton = document.getElementById("start");
+    let stopButton = document.getElementById("stop");
+    startButton.addEventListener("click", startAnimation);
+    stopButton.addEventListener("click", stopAnimation);
+  </script>
+</html>

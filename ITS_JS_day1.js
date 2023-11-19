@@ -275,7 +275,8 @@ arrayTask();
 
 // GENERATED WITH GITHUB COPILOT ------------------------------
 // array methods: push, pop, shift, unshift, splice, slice, indexOf, includes, concat, join, reverse, sort, filter, map, reduce
-
+// Declaring an array: let array = [1, 2, 3, 4, 5];
+// Declaring an empty array: let array = [];
 // push -> add element to the end of the array 
     // magyarul: hozzáad egy elemet a tömb végéhez
 // pop -> remove element from the end of the array 
